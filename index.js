@@ -8,12 +8,6 @@ require('electron-debug')()
 // prevent window being garbage collected
 let mainWindow
 
-function onClosed () {
-	// dereference the window
-	// for multiple windows store them in an array
-  mainWindow = null
-}
-
 function createMainWindow () {
   const win = new electron.BrowserWindow({
     width: 1280,
@@ -21,7 +15,14 @@ function createMainWindow () {
   })
 
   win.loadURL(`file://${__dirname}/public/views/index.html`)
-  win.on('closed', onClosed)
+
+  win.on('move', function () {
+    console.log('teste')
+  })
+
+  win.on('closed', function () {
+    mainWindow = null
+  })
 
   return win
 }

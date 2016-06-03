@@ -1,0 +1,28 @@
+@import 'reset';
+@import '../css/fonts';
+
+//Fonts Variables
+$robotoBlack: robotoblack, Helvetica, Arial, sans-serif;
+$robotoBold: robotobold_condensed, Helvetica, Arial, sans-serif;
+$robotoCondensed: robotocondensed, Helvetica, Arial, sans-serif;
+$robotoItalic: robotoitalic, Helvetica, Arial, sans-serif;
+$robotoLight: robotolight, Helvetica, Arial, sans-serif;
+$robotoMedium: robotomedium, Helvetica, Arial, sans-serif;
+$robotoRegular: robotoregular, Helvetica, Arial, sans-serif;
+$robotoThin: robotothin, Helvetica, Arial, sans-serif;
+
+html, body {
+    @media all and (max-width: 997px) { -webkit-overflow-scrolling: touch; }
+}
+
+main { overflow: hidden; }
+main, .wrapper, .transparent-img { width: 100%; display: block; }
+
+header { position: absolute; width: 500px; height: 250px; top: 50%; left: 50%; margin-top: -125px; margin-left: -250px; text-align: center;
+  h1 { font-family: $robotoLight; font-size: 60px; font-weight: 100; margin: 0; padding: 0; }
+}
+
+//Hovers
+@media all and (min-width: 998px) {
+
+}
