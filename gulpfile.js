@@ -7,7 +7,6 @@ var runSequence = require('run-sequence')
 var imagemin = require('gulp-imagemin')
 var pngquant = require('imagemin-pngquant')
 var ngAnnotate = require('gulp-ng-annotate')
-var phpMinify = require('gulp-php-minify')
 
 gulp.task('clean', function () {
   return gulp.src('./app/dist/')
