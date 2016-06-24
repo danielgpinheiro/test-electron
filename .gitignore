@@ -9,3 +9,4 @@ Thumbs.db
 /tmp/
 prepros.cfg
 public/vendor
+/app/dist

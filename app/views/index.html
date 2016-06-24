@@ -1,19 +1,19 @@
 <!doctype html>
-<html>
+<html ng-app="app">
 	<head>
 		<meta charset="utf-8">
 		<title>test electron</title>
-		<link rel="stylesheet" href="../css/style.css">
+		<link rel="stylesheet" href="../dist/css/style.css">
 	</head>
-	<body>
+	<body ng-controller="taskController">
 		<main>
 			<aside class="horizontal-bar">
 				<button class="open-folders">
-					<img src="../img/icon-hamburguer.svg" alt="Open folders" />
+					<img src="../dist/img/icon-hamburguer.svg" alt="Open folders" />
 				</button>
 
 				<button class="open-settings">
-					<img src="../img/icon-settings.svg" alt="Settings" />
+					<img src="../dist/img/icon-settings.svg" alt="Settings" />
 				</button>
 			</aside>
 
@@ -37,8 +37,8 @@
 
 	<script>if (typeof module === 'object') { window.module = module; module = undefined; }</script>
 
-	<script src='../lib/compressed.min.js'></script>
-	<script src='../js/script.js'></script>
+	<script src='../dist/js/compressed.js'></script>
+	<script src='../dist/js/script.js'></script>
 
 	<script> if (window.module) module = window.module; </script>
 </html>

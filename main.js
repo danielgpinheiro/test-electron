@@ -14,15 +14,17 @@ function createMainWindow () {
     height: 720
   })
 
-  win.loadURL(`file://${__dirname}/public/views/index.html`)
+  win.loadURL(`file://${__dirname} + '/public/views/index.html`)
 
-  win.on('move', function () {
-    console.log('teste')
-  })
+  // win.on('move', function () {
+  //   console.log('teste')
+  // })
 
   win.on('closed', function () {
     mainWindow = null
   })
+
+  win.webContents.openDevTools();
 
   return win
 }

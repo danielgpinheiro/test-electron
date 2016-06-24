@@ -1,10 +1,11 @@
 {
   "name": "teste-electron",
   "productName": "TesteElectron",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "My majestic app",
   "license": "MIT",
   "repository": "lightwish01/teste-electron",
+  "main": "main.js",
   "author": {
     "name": "Daniel Pinheiro",
     "email": "dedelabritos@gmail.com",
@@ -15,11 +16,6 @@
     "start": "electron .",
     "build": "electron-packager . --out=dist --app-version=$npm_package_version --prune --asar --overwrite --all"
   },
-  "files": [
-    "index.js",
-    "index.html",
-    "index.css"
-  ],
   "keywords": [
     "electron-app",
     "electron"
@@ -32,7 +28,20 @@
     "electron-packager": "^7.0.0",
     "electron-prebuilt": "^1.0.1",
     "standard": "^7.1.0",
-    "xo": "^0.15.0"
+    "xo": "^0.15.0",
+    "gulp": "^3.9.1",
+    "gulp-clean": "^0.3.2",
+    "gulp-cli": "^1.2.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-htmlmin": "^2.0.0",
+    "gulp-imagemin": "^3.0.1",
+    "gulp-ng-annotate": "^2.0.0",
+    "gulp-php-minify": "^0.1.2",
+    "gulp-sass": "^2.3.1",
+    "gulp-uglify": "^1.5.3",
+    "imagemin-pngquant": "^5.0.0",
+    "node-sass": "^3.7.0",
+    "run-sequence": "^1.2.1"
   },
   "xo": {
     "esnext": true,
