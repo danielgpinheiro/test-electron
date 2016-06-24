@@ -6,14 +6,39 @@
 		<link rel="stylesheet" href="../css/style.css">
 	</head>
 	<body>
-		<div class="container">
-			<header>
-				<h1>test electron</h1>
-			</header>
-			<section class="main"></section>
-			<footer></footer>
-		</div>
+		<main>
+			<aside class="horizontal-bar">
+				<button class="open-folders">
+					<img src="../img/icon-hamburguer.svg" alt="Open folders" />
+				</button>
+
+				<button class="open-settings">
+					<img src="../img/icon-settings.svg" alt="Settings" />
+				</button>
+			</aside>
+
+			<aside class="folders"></aside>
+
+			<section class="list-container">
+				<ul>
+					<li>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p>
+					</li>
+					<li>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p>
+					</li>
+					<li>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p>
+					</li>
+				</ul>
+			</section>
+		</main>
 	</body>
 
-	<script type="text/javascript" src="lib/jquery-2.2.4.min.js"></script>
+	<script>if (typeof module === 'object') { window.module = module; module = undefined; }</script>
+
+	<script src='../lib/compressed.min.js'></script>
+	<script src='../js/script.js'></script>
+
+	<script> if (window.module) module = window.module; </script>
 </html>

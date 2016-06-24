@@ -11,15 +11,37 @@ $robotoMedium: robotomedium, Helvetica, Arial, sans-serif;
 $robotoRegular: robotoregular, Helvetica, Arial, sans-serif;
 $robotoThin: robotothin, Helvetica, Arial, sans-serif;
 
+$theme: #e67e22;
+
 html, body {
     @media all and (max-width: 997px) { -webkit-overflow-scrolling: touch; }
 }
 
-main { overflow: hidden; }
+main { overflow: hidden; height: 100%; position: relative; background: lighten($theme, 20%); }
 main, .wrapper, .transparent-img { width: 100%; display: block; }
 
-header { position: absolute; width: 500px; height: 250px; top: 50%; left: 50%; margin-top: -125px; margin-left: -250px; text-align: center;
-  h1 { font-family: $robotoLight; font-size: 60px; font-weight: 100; margin: 0; padding: 0; }
+aside.horizontal-bar { width: 40px; height: 100%; position: absolute; top: 0; left: 0; background: lighten($theme, 10%); z-index: 2;
+  button {
+    &, img { display: block; }
+    img { width: 100%; }
+
+    &.open-folders  { width: 100%; background: darken($theme, 10%); }
+    &.open-settings { width: 24px; position: absolute; bottom: 5px; left: 8px; }
+  }
+}
+
+aside.folders { width: 200px; height: 100%; display: block; position: absolute; top: 0; left: 0; background: lighten($theme, 45%); @include transform-translate(-200px, 0); @include transition(all, 0.4s, ease);
+  &.open { @include transform-translate(40px, 0); }
+}
+
+section.list-container { width: 100%; display: block; margin-left: 40px;
+  ul { overflow: hidden; padding: 10px;
+    &, li { width: 100%; display: block; }
+
+    li { width: 100%; float: left; display: block; background: #FFF; margin: 5px 0; padding: 15px 10px;
+      p { font: 16px/16px $robotoRegular; color: #000; }
+    }
+  }
 }
 
 //Hovers

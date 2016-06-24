@@ -133,6 +133,8 @@ textarea {
 
 button, input {
   line-height: normal;
+  border: none;
+  background: none;
 }
 
 button,
@@ -262,6 +264,7 @@ a:focus {
 
 html, body {
   overflow-x: hidden !important;
+  height: 100%;
 }
 
 .overflowHidden {
@@ -350,6 +353,9 @@ html, body {
 
 main {
   overflow: hidden;
+  height: 100%;
+  position: relative;
+  background: #f0b37e;
 }
 
 main, .wrapper, .transparent-img {
@@ -357,21 +363,87 @@ main, .wrapper, .transparent-img {
   display: block;
 }
 
-header {
+aside.horizontal-bar {
+  width: 40px;
+  height: 100%;
   position: absolute;
-  width: 500px;
-  height: 250px;
-  top: 50%;
-  left: 50%;
-  margin-top: -125px;
-  margin-left: -250px;
-  text-align: center;
+  top: 0;
+  left: 0;
+  background: #eb9950;
+  z-index: 2;
 }
 
-header h1 {
-  font-family: robotolight, Helvetica, Arial, sans-serif;
-  font-size: 60px;
-  font-weight: 100;
-  margin: 0;
-  padding: 0;
+aside.horizontal-bar button, aside.horizontal-bar button img {
+  display: block;
+}
+
+aside.horizontal-bar button img {
+  width: 100%;
+}
+
+aside.horizontal-bar button.open-folders {
+  width: 100%;
+  background: #bf6516;
+}
+
+aside.horizontal-bar button.open-settings {
+  width: 24px;
+  position: absolute;
+  bottom: 5px;
+  left: 8px;
+}
+
+aside.folders {
+  width: 200px;
+  height: 100%;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #fdf6f0;
+  -webkit-transform: translate(-200px, 0);
+  -moz-transform: translate(-200px, 0);
+  -ms-transform: translate(-200px, 0);
+  transform: translate(-200px, 0);
+  -webkit-transition: all 0.4s ease;
+  -moz-transition: all 0.4s ease;
+  -ms-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+
+aside.folders.open {
+  -webkit-transform: translate(40px, 0);
+  -moz-transform: translate(40px, 0);
+  -ms-transform: translate(40px, 0);
+  transform: translate(40px, 0);
+}
+
+section.list-container {
+  width: 100%;
+  display: block;
+  margin-left: 40px;
+}
+
+section.list-container ul {
+  overflow: hidden;
+  padding: 10px;
+}
+
+section.list-container ul, section.list-container ul li {
+  width: 100%;
+  display: block;
+}
+
+section.list-container ul li {
+  width: 100%;
+  float: left;
+  display: block;
+  background: #FFF;
+  margin: 5px 0;
+  padding: 15px 10px;
+}
+
+section.list-container ul li p {
+  font: 16px/16px robotoregular, Helvetica, Arial, sans-serif;
+  color: #000;
 }
