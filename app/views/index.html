@@ -19,10 +19,16 @@
 
 			<aside class="folders"></aside>
 
-			<section class="list-container">
+			<section class="container">
+				<form class="task" method="post" name="taskForm">
+						<textarea name="task" id="task" ng-model="task.task" ng-required="true"></textarea>
+
+						<button ng-click="save(task)" ng-disabled="taskForm.$invalid">Salvar</button>
+				</form>
+
 				<ul>
 					<li>
-						<p>//teste//</p>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p>
 					</li>
 					<li>
 						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod</p>

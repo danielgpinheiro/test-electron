@@ -14,21 +14,27 @@
   "scripts": {
     "test": "xo",
     "start": "electron .",
-    "build": "electron-packager . --out=dist --app-version=$npm_package_version --prune --asar --overwrite --all"
+    "build": "electron-packager . --out=dist --app-version=$npm_package_version --prune --asar --overwrite --all",
+    "postinstall-osx": "npm run rebuild-sqlite3-osx",
+    "postinstall-win": "npm run rebuild-sqlite3-win",
+    "teste": "node ../tasks/rebuild_native_modules preGypFix",
+    "rebuild-sqlite3-osx": "cd node_modules/sqlite3; npm run prepublish; node-gyp configure --module_name=node_sqlite3 --module_path=../lib/binding/electron-v1.2-darwin-x64; node-gyp rebuild --target=0.36.1 --arch=x64 --target_platform=darwin --dist-url=https://atom.io/download/atom-shell --module_name=node_sqlite3 --module_path=../lib/binding/electron-v1.2-darwin-x64",
+    "rebuild-sqlite3-win": "cd node_modules/sqlite3 && npm install nan@~2.1.0 --save && npm run prepublish && node-gyp configure --module_name=node_sqlite3 --module_path=../lib/binding/electron-v1.2-win32-x64 && node-gyp rebuild --target=0.36.0 --arch=x64 --target_platform=win32 --dist-url=https://atom.io/download/atom-shell --module_name=node_sqlite3 --module_path=../lib/binding/electron-v1.2-win32-x64",
+    "rebuild-sqlite3-winteste": "cd node_modules/sqlite3 && npm install nan@~2.1.0 --save && npm run prepublish && node-gyp configure --module_name=node_sqlite3 --module_path=../lib/binding/node-v47-win32-x64 && node-gyp node-gyp rebuild --target=0.36.0 --arch=x64 --target_platform=win32 --dist-url=https://atom.io/download/atom-shell --module_name=node_sqlite3 --module_path=../lib/binding/node-v47-win32-x64"
   },
   "keywords": [
     "electron-app",
     "electron"
   ],
   "dependencies": {
-    "electron-debug": "^1.0.0"
+    "electron-debug": "^1.0.0",
+    "sqlite3": "^3.1.4"
   },
   "devDependencies": {
     "devtron": "^1.1.0",
     "electron-packager": "^7.0.0",
     "electron-prebuilt": "^1.0.1",
-    "standard": "^7.1.0",
-    "xo": "^0.15.0",
+    "electron-rebuild": "^1.1.5",
     "gulp": "^3.9.1",
     "gulp-clean": "^0.3.2",
     "gulp-cli": "^1.2.1",
@@ -41,7 +47,9 @@
     "gulp-uglify": "^1.5.3",
     "imagemin-pngquant": "^5.0.0",
     "node-sass": "^3.7.0",
-    "run-sequence": "^1.2.1"
+    "run-sequence": "^1.2.1",
+    "standard": "^7.1.0",
+    "xo": "^0.15.0"
   },
   "xo": {
     "esnext": true,
