@@ -21,9 +21,9 @@
 
 			<section class="container">
 				<form class="task" method="post" name="taskForm">
-						<textarea name="task" id="task" ng-model="task.description" ng-required="true"></textarea>
+					<textarea name="task" id="task" ng-model="task.description" ng-required="true"></textarea>
 
-						<button ng-click="save(task)" ng-disabled="taskForm.$invalid">Salvar</button>
+					<button ng-click="save(task)" ng-disabled="taskForm.$invalid">Salvar</button>
 				</form>
 
 				<ul>
@@ -37,45 +37,8 @@
 
 	<script>if (typeof module === 'object') { window.module = module; module = undefined; }</script>
 
-	<script src='../_lovefield.js'></script>
 	<script src='../dist/js/compressed.js'></script>
 	<script src='../dist/js/scripts.js'></script>
-
-	<script type="text/javascript">
-		var schema = lf.schema.create("test-electron", 1);
-
-
-		    schema.createTable("task").
-		        addColumn("id", lf.Type.INTEGER).
-		        addColumn("description", lf.Type.STRING).
-				addColumn('deadline', lf.Type.DATE_TIME).
-    		    addColumn('done', lf.Type.BOOLEAN).
-				addPrimaryKey(["id"], true).
-				addIndex('idxDeadline', ['deadline'], false, lf.Order.DESC);
-
-
-
-		    schema.connect().then(function(db) {
-			  taskDb = db;
-		      teste = taskDb.getSchema().table("task");
-
-		      var row = teste.createRow({
-		          "description": 'task.description',
-				  'deadline': new Date(),
-    		      'done': false
-		      });
-
-			  return db.insertOrReplace().into(teste).values([row]).exec();
-				}).then(function() {
-				return taskDb.select().from(teste).where(teste.done.eq(false)).exec();
-				}).then(function(results) {
-				results.forEach(function(row) {
-				  console.log(row['description'], 'before', row['deadline']);
-				});
-		  });
-
-
-	</script>
 
 	<script> if (window.module) module = window.module; </script>
 </html>

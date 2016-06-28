@@ -1,14 +1,12 @@
-// var db = require("../db/connection")
-// var tasksTable = require("../db/tasks")
+'use strict'
+
+const db = require("../db/connection")
+const tasksTable = require("../db/tasks")
 
 app.controller('taskController', function ($scope, $http, $timeout, $window) {
-    $scope.tasks = [
-        { id: 1, description: "Teste 123" },
-        { id: 2, description: "Teste fixcode" },
-        { id: 3, description: "Electron" }
-    ];
+    $scope.tasks = []
 
-    // tasksTable.createTable()
+    tasksTable.createTable()
 
     $scope.save = function(task) {
         $scope.tasks.push(task)
@@ -16,11 +14,15 @@ app.controller('taskController', function ($scope, $http, $timeout, $window) {
         tasksTable.add(task)
 
         delete $scope.task;
-
-        // $scope.load()
     }
 
     $scope.load = function() {
-        tasksTable.load()
+        tasksTable.load(function(results, callback) {
+            $scope.tasks = results
+            console.log($scope.tasks)
+            callback()
+        })
     }
+
+    $scope.load()
 })

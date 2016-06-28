@@ -1,5 +1,7 @@
-var db = require("./connection")
-var teste
+'use strict'
+const lf = require('lovefield')
+const db = require("./connection")
+let table
 
 exports.createTable = function () {
     db.createTable("task").
@@ -9,23 +11,29 @@ exports.createTable = function () {
 }
 
 exports.add = function(task) {
+    console.log(task);
+
     db.connect().then(function(db) {
-      teste = db.getSchema().table("task")
+        table = db.getSchema().table("task")
 
-      var row = teste.createRow({
-          "description": task.description
-      })
+        var row = table.createRow({
+            "description": task.description
+        })
 
-      console.log(row)
+        db.insertOrReplace().into(table).values([row]).exec().then(function() {
+            db.close()
+        })
     })
 }
 
-exports.load = function() {
+exports.load = function(callback) {
     db.connect().then(function(db) {
-        var file = db.getSchema().table("task")
+        table = db.getSchema().table("task")
 
-        return db.select().from(file).exec().then(function(row) {
-            console.log(row)
+        db.select().from(table).exec().then(function(results) {
+            callback(results, function() {
+                db.close()
+            });
         })
     })
 }
