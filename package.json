@@ -14,7 +14,7 @@
   "scripts": {
     "test": "xo",
     "start": "electron .",
-    "build": "electron-packager . --out=dist --app-version=$npm_package_version --prune --asar --overwrite --all"
+    "build": "electron-packager . --out=dist --app-version=0.0.1 --prune --asar --overwrite --all"
   },
   "keywords": [
     "electron-app",
@@ -26,6 +26,7 @@
   },
   "devDependencies": {
     "devtron": "^1.1.0",
+    "electron-builder": "^5.10.1",
     "electron-packager": "^7.0.0",
     "electron-prebuilt": "^1.0.1",
     "gulp": "^3.9.1",
