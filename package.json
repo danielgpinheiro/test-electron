@@ -14,7 +14,9 @@
   "scripts": {
     "test": "xo",
     "start": "electron .",
-    "build": "electron-packager . --out=dist --app-version=0.0.1 --prune --asar --overwrite --all"
+    "build-win": "rm -Rf ./dist/ && electron-packager . --out=dist --app-version=0.0.1 --prune --asar --overwrite  --platform=win32  --arch=x64 --ignore=app/js --ignore=app/img --ignore=app/lib --ignore=app/style --ignore=README.md --ignore=.gitignore",
+    "build-macOS": "electron-packager . --out=dist --app-version=0.0.1 --prune --asar --overwrite --platform=darwin  --arch=x64 --ignore=app/js --ignore=app/img --ignore=app/lib --ignore=app/style --ignore=README.md --ignore=.gitignore --ignore=dist",
+    "build-linux": "electron-packager . --out=dist --app-version=0.0.1 --prune --asar --overwrite --platform=linux  --arch=x64 --ignore=app/js --ignore=app/img --ignore=app/lib --ignore=app/style --ignore=README.md --ignore=.gitignore --ignore=dist"
   },
   "keywords": [
     "electron-app",
