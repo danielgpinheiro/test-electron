@@ -10,17 +10,17 @@ exports.createTable = function () {
         addPrimaryKey(["id"], true);
 }
 
-exports.add = function(task) {
-    console.log(task);
-
+exports.add = function(opt) {
     db.connect().then(function(db) {
         table = db.getSchema().table("task")
 
         var row = table.createRow({
-            "description": task.description
+            "description": opt.task.description
         })
 
-        db.insertOrReplace().into(table).values([row]).exec().then(function() {
+        db.insertOrReplace().into(table).values([row]).exec().then(function(row) {
+            console.log("row:" + JSON.stringify(row))
+            opt.callback()
             db.close()
         })
     })
@@ -29,11 +29,9 @@ exports.add = function(task) {
 exports.load = function(callback) {
     db.connect().then(function(db) {
         table = db.getSchema().table("task")
-
         db.select().from(table).exec().then(function(results) {
-            callback(results, function() {
-                db.close()
-            });
+            callback(results);
+            db.close()
         })
     })
 }

@@ -15,8 +15,8 @@
     "test": "xo",
     "start": "electron .",
     "build-win": "rm -Rf ./dist/ && electron-packager . --out=dist --app-version=0.0.1 --prune --asar --overwrite  --platform=win32  --arch=x64 --ignore=app/js --ignore=app/img --ignore=app/lib --ignore=app/style --ignore=README.md --ignore=.gitignore",
-    "build-macOS": "electron-packager . --out=dist --app-version=0.0.1 --prune --asar --overwrite --platform=darwin  --arch=x64 --ignore=app/js --ignore=app/img --ignore=app/lib --ignore=app/style --ignore=README.md --ignore=.gitignore --ignore=dist",
-    "build-linux": "electron-packager . --out=dist --app-version=0.0.1 --prune --asar --overwrite --platform=linux  --arch=x64 --ignore=app/js --ignore=app/img --ignore=app/lib --ignore=app/style --ignore=README.md --ignore=.gitignore --ignore=dist"
+    "build-macOS": "rm -Rf ./dist/ && electron-packager . --out=dist --app-version=0.0.1 --prune --asar --overwrite --platform=darwin  --arch=x64 --ignore=app/js --ignore=app/img --ignore=app/lib --ignore=app/style --ignore=README.md --ignore=.gitignore",
+    "build-linux": "rm -Rf ./dist/ && electron-packager . --out=dist --app-version=0.0.1 --prune --asar --overwrite --platform=linux  --arch=x64 --ignore=app/js --ignore=app/img --ignore=app/lib --ignore=app/style --ignore=README.md --ignore=.gitignore"
   },
   "keywords": [
     "electron-app",
@@ -43,6 +43,7 @@
     "gulp-uglify": "^1.5.3",
     "imagemin-pngquant": "^5.0.0",
     "node-sass": "^3.7.0",
+    "promise": "^7.1.1",
     "run-sequence": "^1.2.1",
     "standard": "^7.1.0",
     "xo": "^0.15.0"

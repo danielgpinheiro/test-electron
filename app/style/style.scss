@@ -43,11 +43,15 @@ section.container { width: 100%; display: block; margin-left: 40px;
     button { font: 18px/25px $robotoLight; color: #fff; padding: 5px; background: darken($theme, 10%);  }
   }
 
-  ul { overflow: hidden; padding: 10px;
+  ul { overflow-x: hidden; overflow-y: scroll; padding: 10px;
     &, li { width: 100%; display: block; }
 
     li { width: 100%; float: left; display: block; background: #FFF; margin: 5px 0; padding: 15px 10px; border: solid 1px #f6f6f6; border-radius: 4px;
-      p { font: 16px/16px $robotoRegular; color: #000; }
+      p { font: 16px/16px $robotoRegular; color: #000;
+          strong { font-family: $robotoBold;
+              &:after { content: " - "; }
+          }
+      }
     }
   }
 }

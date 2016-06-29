@@ -1,26 +1,30 @@
 'use strict'
-
 const db = require("../db/connection")
-const tasksTable = require("../db/tasks")
+const taskModel = require("../db/tasks")
 
 app.controller('taskController', function ($scope, $http, $timeout, $window) {
     $scope.tasks = []
 
-    tasksTable.createTable()
+    taskModel.createTable()
 
     $scope.save = function(task) {
-        $scope.tasks.push(task)
+        delete $scope.teste
 
-        tasksTable.add(task)
+        taskModel.add({ task: task, callback: function() {
+            // console.log("ok")
+            $scope.tasks.push(task)
+        }})
 
-        delete $scope.task;
+        // $timeout(function() {
+        //     $scope.load()
+        // }, 100)
     }
 
     $scope.load = function() {
-        tasksTable.load(function(results, callback) {
+        taskModel.load(function(results) {
+            console.log(results)
+
             $scope.tasks = results
-            console.log($scope.tasks)
-            callback()
         })
     }
 

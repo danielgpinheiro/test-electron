@@ -20,15 +20,15 @@
 			<aside class="folders"></aside>
 
 			<section class="container">
-				<form class="task" method="post" name="taskForm">
-					<textarea name="task" id="task" ng-model="task.description" ng-required="true"></textarea>
+				<form class="teste" name="testeForm">
+					<textarea name="teste" id="teste" ng-model="teste.description" ng-required="true"></textarea>
 
-					<button ng-click="save(task)" ng-disabled="taskForm.$invalid">Salvar</button>
+					<button ng-click="save(teste)" ng-disabled="testeForm.$invalid">Salvar</button>
 				</form>
 
 				<ul>
 					<li ng-repeat="task in tasks">
-						<p>//task.description//</p>
+						<p><strong>//task.id//</strong>//task.description//</p>
 					</li>
 				</ul>
 			</section>
@@ -38,7 +38,10 @@
 	<script>if (typeof module === 'object') { window.module = module; module = undefined; }</script>
 
 	<script src='../dist/js/compressed.js'></script>
-	<script src='../dist/js/scripts.js'></script>
+	<!-- <script src='../dist/js/scripts.js'></script> -->
+	<script src='../js/app.js'></script>
+	<script src='../js/script.js'></script>
+	<script src='../js/controllers/taskController.js'></script>
 
 	<script> if (window.module) module = window.module; </script>
 </html>
