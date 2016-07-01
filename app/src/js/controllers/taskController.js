@@ -11,18 +11,13 @@ app.controller('taskController', function ($scope, $http, $timeout, $window) {
         delete $scope.teste
 
         taskModel.add({ task: task, callback: function() {
-            // console.log("ok")
             $scope.tasks.push(task)
         }})
-
-        // $timeout(function() {
-        //     $scope.load()
-        // }, 100)
     }
 
     $scope.load = function() {
         taskModel.load(function(results) {
-            console.log(results)
+            console.log("angular:" + JSON.stringify(results))
 
             $scope.tasks = results
         })

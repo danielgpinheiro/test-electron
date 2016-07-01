@@ -1,7 +1,4 @@
-var app = angular.module("app", [
-    "ngMask",
-    "ngSanitize"
-]);
+var app = angular.module("app", []);
 
 app.config(function($interpolateProvider, $httpProvider){
 	//Enable cross domain calls

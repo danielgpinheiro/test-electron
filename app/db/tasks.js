@@ -29,8 +29,13 @@ exports.add = function(opt) {
 exports.load = function(callback) {
     db.connect().then(function(db) {
         table = db.getSchema().table("task")
+
+        var rows = [{ id: 1, description: 'ola' }, { id: 2, description: 'huebr' }]
+        console.log("static: " +JSON.stringify(rows))
+
         db.select().from(table).exec().then(function(results) {
-            callback(results);
+            console.log("callback banco: " +JSON.stringify(results))
+            callback(JSON.stringify(results));
             db.close()
         })
     })

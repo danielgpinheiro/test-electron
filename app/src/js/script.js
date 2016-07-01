@@ -1,14 +1,15 @@
-'use strict'
-
-let taskListHeight = function() {
+taskListHeight = function() {
     var formHeight = $("section.container form").innerHeight()
     var windowHeight = $(window).height()
 
     var height = windowHeight - formHeight
     $("section.container ul").css({"height": height})
-
-    console.log(height)
 }
+
+
+$(window).resize(function() {
+    taskListHeight()
+})
 
 $(document).ready(function () {
     $('textarea').elastic()
@@ -18,4 +19,6 @@ $(document).ready(function () {
     })
 
     taskListHeight()
+
+    alert(window.location.href)
 })
